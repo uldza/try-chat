@@ -60,9 +60,9 @@
 
     /[if lt IE 9]
       .browser-update
-        %span= t('You are using old browser', scope: 'public.page')
-        %a{href: "http://browsehappy.com/"}= t('update your browser', scope: 'public.page')
-        %span= t("to improove your experience", scope: 'public.page')
+        %span= t('old_browser', scope: 'public.page')
+        %a{href: "http://browsehappy.com/"}= t('update_browser', scope: 'public.page')
+        %span= t("inproove_experience", scope: 'public.page')
 
     %header
     %main= yield
