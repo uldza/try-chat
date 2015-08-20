@@ -5,7 +5,7 @@ gem 'mysql2'
 gem 'uglifier', '>= 1.3.0'
 
 # Frontend gems
-gem 'haml'
+gem 'haml-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'bower-rails'
 gem 'socket.io-rails'
