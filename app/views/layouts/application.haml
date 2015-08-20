@@ -1,0 +1,71 @@
+:ruby
+  html_attrs = { lang: I18n.locale }
+
+  html_lt_ie9 = tag(:html, html_attrs.merge(class: ["no-js", "lt-ie9"]) )
+  html_ie9    = tag(:html, html_attrs.merge(class: ["no-js", "ie9"]) )
+  html_modern = tag(:html, html_attrs.merge(class: ["no-js"]) )
+
+  html_tag = [
+    "<!--[if lt IE 9]>#{html_lt_ie9}<![endif]-->",
+    "<!--[if IE 9]>#{html_ie9}<![endif]-->",
+    "<!--[if (gt IE 9)|!(IE)]><!-->#{html_modern}<!--<![endif]-->"
+  ].join("\n").strip
+
+!!!
+= surround html_tag.html_safe, '</html>'.html_safe do
+  %head
+    %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+    %meta{ 'http-equiv' => 'Content-Type',    content: 'text/html; charset=utf-8' }
+
+    %title= "TRY-CHAT"
+
+    = csrf_meta_tags
+
+    %meta{ name: :author,   content:  'Uldis Megnis / uldis.megnis@gmail.com' }
+    %meta{ name: :viewport, content:  'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' }
+    %meta{ name: :description, content: "TRY-CHAT is example chat app created with ruby on rails and react.js"}
+
+    = stylesheet_link_tag "application", media: "all"
+
+  %body{class: "#{controller_name.dasherize}-controller"}
+    :javascript
+      if(document && document.getElementById && document.documentElement)
+      {
+          var class_names = (document.documentElement.className || "").split(" ");
+
+          for(var i=0; i<=class_names.length; i++)
+          {
+            if(class_names[i] === 'no-js')
+            {
+              class_names[i] = 'js';
+            }
+          }
+
+          if('ontouchstart' in window || 'onmsgesturechange' in window)
+          {
+              class_names.push('touch-device');
+          }
+          else
+          {
+              class_names.push('no-touch');
+          }
+
+          if(navigator.userAgent.indexOf('Trident') !== -1)
+          {
+              class_names.push('ie');
+          };
+
+          document.documentElement.className = class_names.join(' ').replace(/^\s|\s$/g, '');
+      }
+
+    /[if lt IE 9]
+      .browser-update
+        %span= t('You are using old browser', scope: 'public.page')
+        %a{href: "http://browsehappy.com/"}= t('update your browser', scope: 'public.page')
+        %span= t("to improove your experience", scope: 'public.page')
+
+    %header
+    %main= yield
+    %footer
+
+    = javascript_include_tag "application"
