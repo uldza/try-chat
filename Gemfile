@@ -9,6 +9,7 @@ gem 'haml-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'bower-rails'
 gem 'socket.io-rails'
+gem 'twitter-bootstrap-rails'
 # React as frontend lib
 gem 'react-rails', '~> 1.0'
 # write javascript as ES6

@@ -1,3 +1,5 @@
-%h1= t('h1', scope: 'public.page.index')
+.container
+  .jumbotron
+    %h1= t('h1', scope: 'public.page.index')
 
-= react_component('Input', {url: socket_path}, {prerender: false})
+  = react_component('Input', {url: socket_path}, {prerender: false})
