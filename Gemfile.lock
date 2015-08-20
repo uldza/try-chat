@@ -254,7 +254,7 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   socket.io-rails
-  sprockets
+  sprockets (>= 3.0.0.beta)
   sprockets-es6
   timecop
   tubesock

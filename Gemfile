@@ -12,8 +12,8 @@ gem 'socket.io-rails'
 # React as frontend lib
 gem 'react-rails', '~> 1.0'
 # write javascript as ES6
-gem 'sprockets'
-gem 'sprockets-es6', require: 'sprockets/es6'
+gem 'sprockets', '>=3.0.0.beta'
+gem 'sprockets-es6'
 
 # For auth
 gem 'devise'
