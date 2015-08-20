@@ -3,7 +3,7 @@ en:
     page:
       old_browser: 'You are using very old browser'
       update_browser: 'update your browser'
-      inproove_experience: ', to inproove you experience'
+      improove_experience: ', to improove you experience'
 
       index:
         h1: 'This is test chat app'
