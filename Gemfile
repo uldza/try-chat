@@ -22,6 +22,7 @@ gem 'devise'
 gem 'active_model_serializers', '~> 0.9.0'
 
 # Puma web server
+gem 'redis'
 gem 'puma'
 
 # Capistrano for deployment
