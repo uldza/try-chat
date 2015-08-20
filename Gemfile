@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'uglifier', '>= 1.3.0'
 
 # Frontend gems
+gem 'haml'
 gem 'sass-rails', '~> 5.0'
 gem 'bower-rails'
 gem 'socket.io-rails'
@@ -13,6 +14,9 @@ gem 'react-rails', '~> 1.0'
 # write javascript as ES6
 gem 'sprockets'
 gem 'sprockets-es6', require: 'sprockets/es6'
+
+# For auth
+gem 'devise'
 
 # For json structure
 gem 'active_model_serializers', '~> 0.9.0'
