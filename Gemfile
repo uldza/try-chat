@@ -22,6 +22,7 @@ gem 'devise'
 gem 'active_model_serializers', '~> 0.9.0'
 
 # Puma web server
+gem 'tubesock'
 gem 'redis'
 gem 'puma'
 

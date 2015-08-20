@@ -209,6 +209,9 @@ GEM
     thread_safe (0.3.5)
     tilt (1.4.1)
     timecop (0.8.0)
+    tubesock (0.2.5)
+      rack (>= 1.5.0)
+      websocket (>= 1.1.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -219,6 +222,7 @@ GEM
     webmock (1.21.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+    websocket (1.2.2)
     websocket-driver (0.6.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -253,5 +257,6 @@ DEPENDENCIES
   sprockets
   sprockets-es6
   timecop
+  tubesock
   uglifier (>= 1.3.0)
   webmock
