@@ -36,6 +36,8 @@
 
             this.socket.send( message.value, 'aaa' );
 
+            ChatActions.sendMessage( message.value );
+
             message.value = '';
         }
     }
