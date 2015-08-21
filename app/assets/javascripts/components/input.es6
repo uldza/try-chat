@@ -1,4 +1,4 @@
-(function(BaseComponent, io) {
+(function(BaseComponent) {
 
     class Input extends BaseComponent
     {
@@ -42,5 +42,5 @@
 
     window.Input = Input;
 
-})(window.BaseComponent, window.io);
+})(window.BaseComponent);
 
