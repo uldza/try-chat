@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User do
   it_behaves_like "association includer", :has_many, :channels
-  #it_behaves_like "association includer", :has_many, :messages, through: channels
+  it_behaves_like "association includer", :has_many, :messages
 
   describe "validations" do
     before do

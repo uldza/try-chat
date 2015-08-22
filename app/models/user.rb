@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   ]
 
   has_many :channels, inverse_of: :user, dependent: :destroy
-  #has_many :messages, through: :channels, dependent: :destroy
+  has_many :messages, inverse_of: :user, dependent: :destroy
 
   validates :permission_group, inclusion: {in: PERMISSIONS, allow_blank: false}
   validates_presence_of :email

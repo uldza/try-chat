@@ -4,6 +4,7 @@ describe Channel do
   let(:channel) { create(:channel) }
 
   it_behaves_like "association includer", :belongs_to, :user
+  it_behaves_like "association includer", :has_many, :messages
 
   describe "validations" do
     before do
