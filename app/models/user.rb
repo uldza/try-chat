@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     PERMISSION_GUEST = 'guest',
   ]
 
-  #has_many :channels, inverse_of: :user, dependent: :destroy
+  has_many :channels, inverse_of: :user, dependent: :destroy
   #has_many :messages, through: :channels, dependent: :destroy
 
   validates :permission_group, inclusion: {in: PERMISSIONS, allow_blank: false}
