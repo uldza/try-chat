@@ -15,4 +15,16 @@ class User < ActiveRecord::Base
 
   validates :permission_group, inclusion: {in: PERMISSIONS, allow_blank: false}
   validates_presence_of :email
+
+  def user?
+    permission_group == User::PERMISSION_USER
+  end
+
+  def admin?
+    permission_group == User::PERMISSION_ADMIN
+  end
+
+  def guest?
+    permission_group == User::PERMISSION_GUEST
+  end
 end

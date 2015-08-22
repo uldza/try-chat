@@ -21,18 +21,6 @@ module Api
       def publish( redis_channel, message )
         Redis.new.publish redis_channel, message
       end
-
-      def user?
-        current_user.try(:permission_group) == User::PERMISSION_USER
-      end
-
-      def admin?
-        current_user.try(:permission_group) == User::PERMISSION_ADMIN
-      end
-
-      def guest?
-        current_user.try(:permission_group) == User::PERMISSION_GUEST
-      end
     end
   end
 end
