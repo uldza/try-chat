@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe UserSerializer, type: :class do
-  let(:user) { FactoryGirl.create(:user, email: 'john@example.com') }
+  let(:user) { create(:user, email: 'john@example.com') }
 
   subject { described_class.new user }
 
