@@ -1,5 +1,49 @@
-.container
-  .jumbotron
-    %h1= t('h1', scope: 'public.page.index')
+%header.navbar.navbar-default
+  .container
+    .header-logo
+      %a.navbar-brand{href: '/'}
+        %i.fa.fa-comments
+        %span= 'TRY-CHAT'
 
-  = react_component('Input', {url: socket_path}, {prerender: false})
+    %ul.navbar-right.nav.navbar-nav
+      %li.current-user
+        %i.fa.fa-user
+        %span= current_user.email
+      %li
+        %a{href: '#'}= t('logout', scope: 'public.page.index')
+
+%main
+  .container-fluid
+    #main-content.row
+      .sidebar.col-md-3
+        .panel.panel-default
+          .panel-heading= 'Chat channels'
+
+          .panel-body
+            %ul.channels-list
+              %li.channel= 'General'
+              %li.channel= 'Test 1'
+              %li.channel= 'Test 2'
+
+          .panel-footer
+            .input-group
+              %input{type: "text", class: "form-control", placeholder: "Channel name"}
+              .input-group-btn
+                %button.btn.btn-default{type: "button"}= 'New'
+
+      .content.col-md-9
+        .panel.panel-default
+          .panel-heading
+            .row
+              .col-md-9= 'Active channel name'
+              .row-md-3.user-count
+                %i.fa.fa-group
+                %span= 'Online users'
+
+
+          .panel-body
+            %ul.chat-messages
+              %li.message= 'some chat message'
+
+          .panel-footer
+            = react_component('Input', {prerender: true})

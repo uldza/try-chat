@@ -64,8 +64,6 @@
         %a{href: "http://browsehappy.com/"}= t('update_browser', scope: 'public.page')
         %span= t("improove_experience", scope: 'public.page')
 
-    %header
-    %main= yield
-    %footer
+    = yield
 
     = javascript_include_tag "application"

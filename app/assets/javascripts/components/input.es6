@@ -21,9 +21,12 @@
         render()
         {
             return (
-                <div className='chat-input'>
-                    <input type='text' name='message' id='message' ref='message' />
-                    <button type='button' onClick={this._send.bind(this)}>Send</button>
+                <div className='input-group input-group-lg'>
+                    <div className='input-group-addon'>New message</div>
+                    <input type='text' className='form-control' name='message' id='message' ref='message' />
+                    <div className='input-group-btn'>
+                        <button className='btn btn-default' type='button' onClick={this._send.bind(this)}>Send</button>
+                    </div>
                 </div>
             );
         }
