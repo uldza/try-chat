@@ -11,7 +11,7 @@ describe ChannelSerializer, type: :class do
   end
 
   it 'creates JSON with required fields' do
-    expect(@parsed.keys).to eq(%w(id name deletable user))
+    expect(@parsed.keys).to eq(%w(id name deletable user messages))
   end
 
   it 'has correct values' do
@@ -25,7 +25,8 @@ describe ChannelSerializer, type: :class do
       'id'                => channel.id,
       'name'              => 'General chat',
       'deletable'         => true,
-      'user'              => user_hash
+      'user'              => user_hash,
+      'messages'          => []
     })
   end
 end
