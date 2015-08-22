@@ -5,7 +5,6 @@ module Api
 
       respond_to :json
 
-      private
       def render_401
         render nothing: true, status: 401
       end
@@ -18,6 +17,7 @@ module Api
         render nothing: true, status: 404
       end
 
+      private
       def publish( redis_channel, message )
         Redis.new.publish redis_channel, message
       end
