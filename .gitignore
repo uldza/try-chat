@@ -17,5 +17,7 @@
 .DS_Store
 .sass-cache
 
+/coverage
+
 config/secrets.yml
 config/database.yml
