@@ -25,7 +25,7 @@ describe Message do
         message
         message_2
         message_3
-        resources = Message.for_channel( message_2 )
+        resources = Message.for_channel( message_2.channel )
         expect( resources ).not_to include( message )
         expect( resources ).to include( message_2, message_3 )
       end
