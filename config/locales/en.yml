@@ -1,5 +1,9 @@
 en:
   public:
+    error_messages:
+      page_not_found: 'Page not found'
+      internal_server_error: 'Internal server error'
+      return: 'Return to first page'
     page:
       old_browser: 'You are using very old browser'
       update_browser: 'update your browser'
