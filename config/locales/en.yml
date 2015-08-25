@@ -10,8 +10,16 @@ en:
       improove_experience: ', to improove you experience'
       login_as_guest: 'To log in as Guest'
       log_in: 'LOG IN'
-      guest_login_name: 'Guest login:'
-      guest_password: 'Guest password:'
+      guest_login_name: 'Email:'
+      guest_password: 'Password:'
+
+      new_message: 'New message'
+      send_message: 'Send'
+      online_users: 'Online users'
+
+      channel_name: 'Channel name'
+      create_channel: 'New'
+      channels_title: 'Chat channels'
 
       index:
         h1: 'This is test chat app'
