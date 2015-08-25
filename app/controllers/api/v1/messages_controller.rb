@@ -20,6 +20,10 @@ module Api
           text: params[:message]
         }
       end
+
+      def serializer
+        MessageSerializer
+      end
     end
   end
 end

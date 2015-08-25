@@ -5,10 +5,13 @@ module Api
       def attributes
         {
           user: current_user,
-          name: params[:channel],
+          name: required_params[:name],
         }
       end
 
+      def serializer
+        ChannelSerializer
+      end
     end
   end
 end
