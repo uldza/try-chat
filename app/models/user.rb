@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
   validates :permission_group, inclusion: {in: PERMISSIONS, allow_blank: false}
   validates_presence_of :email
 
+  before_validation :assign_permisions, unless: :permission_group?
+  before_validation :assign_password, if: :guest?
+
+  scope :guests, -> { where(permission_group: PERMISSION_GUEST) }
+
   def user?
     permission_group == User::PERMISSION_USER
   end
@@ -26,5 +31,15 @@ class User < ActiveRecord::Base
 
   def guest?
     permission_group == User::PERMISSION_GUEST
+  end
+
+  private
+  def assign_permisions
+    self.permission_group = User::PERMISSION_USER
+  end
+
+  def assign_password
+    self.password = email
+    self.password_confirmation = email
   end
 end
