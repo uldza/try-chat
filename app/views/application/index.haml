@@ -15,37 +15,18 @@
             %span= t('logout', scope: 'public.page.index')
 
 %main
+  :ruby
+    translations = {
+      messages: {
+        new_message: t('new_message', scope: 'public.page'),
+        send_message: t('send_message', scope: 'public.page'),
+        online_users: t('online_users', scope: 'public.page'),
+      },
+      channels: {
+        channel_name: t('channel_name', scope: 'public.page'),
+        create_channel: t('create_channel', scope: 'public.page'),
+        channels_title: t('channels_title', scope: 'public.page'),
+      }
+    }
   .container-fluid
-    #main-content.row
-      .sidebar.col-md-3
-        .panel.panel-default
-          .panel-heading= 'Chat channels'
-
-          .panel-body
-            %ul.channels-list
-              %li.channel= 'General'
-              %li.channel= 'Test 1'
-              %li.channel= 'Test 2'
-
-          .panel-footer
-            .input-group
-              %input{type: "text", class: "form-control", placeholder: "Channel name"}
-              .input-group-btn
-                %button.btn.btn-default{type: "button"}= 'New'
-
-      .content.col-md-9
-        .panel.panel-default
-          .panel-heading
-            .row
-              .col-md-9= 'Active channel name'
-              .row-md-3.user-count
-                %i.fa.fa-group
-                %span= 'Online users'
-
-
-          .panel-body
-            %ul.chat-messages
-              %li.message= 'some chat message'
-
-          .panel-footer
-            = react_component('Input', {prerender: true})
+    = react_component('App', {token: form_authenticity_token, translations: translations, channels: @channels.map{ |c| ChannelSerializer.new(c) }}, {prerender: false, id: 'main-content'})

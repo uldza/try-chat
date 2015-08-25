@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def index
+    @channels = Channel.all
   end
 
   def handle_error(exception = nil)

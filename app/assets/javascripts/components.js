@@ -8,6 +8,10 @@
 
 //= require ./components/base_component
 //= require ./components/input
+//= require ./components/messages
+//= require ./components/channels
+//
+//= require ./components/app
 
 //= require_tree ./actions
 //= require_tree ./stores

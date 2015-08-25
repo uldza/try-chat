@@ -1,47 +1,49 @@
 (function(BaseComponent) {
 
-    class Input extends BaseComponent
+    class Input extends React.Component
     {
         constructor(props)
         {
             super(props);
-            this.socket = null;
-            this._bind('_send');
-        }
-
-        componentDidMount()
-        {
-            this.socket = new WebSocket("ws://" + window.location.host + '/socket');
-
-            this.socket.onmessage = (event) => {
-                console.log(event);
-            };
+            this._send.bind(this);
+            this._labelHtml.bind(this);
         }
 
         render()
         {
+            let classes = ['input-group'];
+
+            if( this.props.large ) classes.push('input-group-lg');
+
             return (
-                <div className='input-group input-group-lg'>
-                    <div className='input-group-addon'>New message</div>
-                    <input type='text' className='form-control' name='message' id='message' ref='message' />
+                <div className={classes.join(' ')}>
+                    {this._labelHtml()}
+
+                    <input type='text' className='form-control' name='input' ref='input' placeholder={this.props.placeholder} />
+
                     <div className='input-group-btn'>
-                        <button className='btn btn-default' type='button' onClick={this._send.bind(this)}>Send</button>
+                        <button className='btn btn-default' type='button' onClick={this._send.bind(this)}>{this.props.submit || 'Submit'}</button>
                     </div>
                 </div>
             );
         }
 
+        _labelHtml()
+        {
+            let label = null;
+            if( this.props.label )
+            {
+                label = <div className='input-group-addon'>{this.props.label}</div>;
+            }
+
+            return label;
+        }
+
         _send()
         {
-            if( !this.socket ) return;
-
-            let message = React.findDOMNode(this.refs.message);
-
-            this.socket.send( message.value, 'aaa' );
-
-            ChatActions.sendMessage( message.value );
-
-            message.value = '';
+            let input = React.findDOMNode(this.refs.input);
+            this.props.onSubmit(input.value);
+            input.value = '';
         }
     }
 
