@@ -9,8 +9,10 @@
       %li.current-user
         %i.fa.fa-user
         %span= current_user.email
-      %li
-        %a{href: '#'}= t('logout', scope: 'public.page.index')
+      %li.logout
+        = form_tag(destroy_user_session_path, method: :delete) do
+          %button{type: :submit, class: ['btn', 'btn-warning']}
+            %span= t('logout', scope: 'public.page.index')
 
 %main
   .container-fluid

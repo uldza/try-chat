@@ -29,7 +29,7 @@ module Api
         respond_with( @resource )
       end
 
-      def delete
+      def destroy
         @resource = scoped_resources.find( params[:id] )
         respond_with( @resource.destroy )
       end

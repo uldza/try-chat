@@ -8,6 +8,10 @@ en:
       old_browser: 'You are using very old browser'
       update_browser: 'update your browser'
       improove_experience: ', to improove you experience'
+      login_as_guest: 'To log in as Guest'
+      log_in: 'LOG IN'
+      guest_login_name: 'Guest login:'
+      guest_password: 'Guest password:'
 
       index:
         h1: 'This is test chat app'
