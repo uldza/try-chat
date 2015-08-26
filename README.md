@@ -22,4 +22,4 @@
 * to run tests with coverage report `COVERAGE=y rspec`
 
 ## PS ##
-To create admin user - use `rails c`
+To create admin user and guest user, run `rake db:seed`
