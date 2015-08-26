@@ -3,6 +3,7 @@
 ## Requirments ##
 
 * Puma web server
+* Redis
 
 
 ## Technologies used
