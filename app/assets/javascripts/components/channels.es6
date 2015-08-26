@@ -10,6 +10,12 @@
 
         render()
         {
+            let input = null;
+            if( this.state.user && this._canEdit(this.state.user) )
+            {
+                input = <Input onSubmit={this._create} placeholder="Channel name" submit="New" label="" />;
+            }
+
             return (
                 <div className='panel panel-default'>
                     <div className='panel-heading'>{this.props.translations.channels_title}</div>
@@ -19,7 +25,7 @@
                     </div>
 
                     <div className='panel-footer'>
-                        <Input onSubmit={this._create} placeholder="Channel name" submit="New" label="" />
+                        {input}
                     </div>
                 </div>
             );
@@ -50,7 +56,6 @@
         _update( channelId )
         {
             let input = React.findDOMNode(this.refs['input-'+channelId]);
-            console.log(input.value.length);
             if( input.value.length > 0 ) ChatActions.updateChannel(channelId, input.value);
         }
 

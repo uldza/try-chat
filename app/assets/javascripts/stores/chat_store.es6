@@ -38,13 +38,12 @@
         {
             this.channels = response.data;
 
+            let id = this.activeChannel ? this.activeChannel.id : 0;
+            this.activeChannel = _.findWhere(this.channels, {id: id});
+
             if( this.activeChannel === undefined )
             {
                 this.activeChannel = this.channels[0];
-            }
-            else
-            {
-                this.activeChannel = _.findWhere(this.channels, {id: this.activeChannel.id});
             }
         }
 

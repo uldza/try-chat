@@ -19,6 +19,13 @@
         {
             let messages = [];
 
+            let input = null;
+
+            if( this.state.user && this._canEdit(this.state.user) )
+            {
+                input = <Input onSubmit={this._send} large={true} label={this.props.translations.new_message} submit={this.props.translations.send_message}/>;
+            }
+
             return (
                 <div className='messages panel panel-default'>
                     <div className='panel-heading'>
@@ -30,7 +37,7 @@
                     </div>
 
                     <div className='panel-footer'>
-                        <Input onSubmit={this._send} large={true} label={this.props.translations.new_message} submit={this.props.translations.send_message}/>
+                        {input}
                     </div>
                 </div>
             );
@@ -70,7 +77,6 @@
 
         _canEditChannel( channel )
         {
-            console.log(channel);
             return (channel.user.id === this.state.user.id || this.state.user.permission_group === 'admin');
         }
 
@@ -128,7 +134,6 @@
 
         _send( message )
         {
-            console.log(this.state.activeChannel);
             ChatActions.sendNewMessage(this.state.activeChannel.id, message);
         }
     }

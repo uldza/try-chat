@@ -6,7 +6,7 @@
             super(props);
             this.package = {};
             this.state = ChatStore.getState();
-            this._bind('_onChange');
+            this._bind('_onChange', '_canEdit');
         }
 
         componentDidMount() {
@@ -26,6 +26,11 @@
         _onChange( state )
         {
             this.setState(state);
+        }
+
+        _canEdit( user )
+        {
+            return (user.permission_group === 'admin' || user.permission_group === 'user');
         }
     }
 
