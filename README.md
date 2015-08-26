@@ -12,6 +12,7 @@
 * websockets
 * altJS (for flux implementation)
 * es6
+* Bootstrap
 * ruby on rails
 
 
