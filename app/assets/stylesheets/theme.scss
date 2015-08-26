@@ -42,6 +42,27 @@ main
   }
 }
 
+.channels
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .channel
+  {
+    margin: 0;
+  }
+
+  .panel
+  {
+    margin-bottom: 2px;
+    padding: 5px;
+
+    cursor: pointer;
+  }
+}
+
+
 #register-form,
 #login-form
 {
@@ -78,8 +99,6 @@ main
     top: 0;
     bottom: 0;
     left: 0;
-
-    overflow-y: auto;
   }
 
   .content
@@ -96,13 +115,75 @@ main
       padding-right: 15px;
     }
 
-    .panel
+    .message .panel
+    {
+      padding: 5px;
+      margin-bottom: 2px;
+    }
+
+    > .panel
     {
       height: 100%;
+
+      padding: 0;
 
       margin-bottom: 0;
 
       position: relative;
+
+      .panel-heading
+      {
+        .buttons
+        {
+          text-align: right;
+
+          i
+          {
+            margin: 0;
+          }
+
+          button:last-child
+          {
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .panel-body
+      {
+        height: 80%;
+
+        padding: 0 10px 90px;
+
+        .messages
+        {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .user
+        {
+          font-size: 10px;
+          color: #dddddd;
+        }
+
+        .remove
+        {
+          text-align: right;
+        }
+        i
+        {
+          margin-top: 3px;
+          cursor: pointer;
+          color: #a94442;
+
+          &:hover
+          {
+            color: darken(#a94442, 10%);
+          }
+        }
+      }
 
       .panel-footer
       {
@@ -110,7 +191,6 @@ main
 
         position: absolute;
         bottom: 0;
-        left: 0;
       }
     }
   }

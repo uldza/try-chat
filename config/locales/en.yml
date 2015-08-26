@@ -15,6 +15,7 @@ en:
 
       new_message: 'New message'
       send_message: 'Send'
+      no_active_channel: 'No active channel'
 
       channel_name: 'Channel name'
       create_channel: 'New'

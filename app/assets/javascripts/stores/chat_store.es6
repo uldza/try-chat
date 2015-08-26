@@ -9,7 +9,6 @@
             this.user = null;
             this.channels = [];
             this.activeChannel = null;
-            this.onlineUsers = null;
         }
 
         onInitialize( payload )
@@ -19,19 +18,34 @@
             this.activeChannel = this.channels[0];
         }
 
+        onChangeChannel( payload )
+        {
+            let activeChannelId = payload[0];
+            this.activeChannel = _.findWhere(this.channels, {id: activeChannelId});
+        }
+
         onNewSocketMsg( message )
         {
             // I use sockets as signaling for actions
-            if( message.data === 'update' )
+            switch( message.data )
             {
-                ChatActions.getChannels();
+                case 'update':
+                    ChatActions.getChannels();
             }
         }
 
         onGetChannelsOk( response )
         {
             this.channels = response.data;
-            console.log(this.channels);
+
+            if( this.activeChannel === undefined )
+            {
+                this.activeChannel = this.channels[0];
+            }
+            else
+            {
+                this.activeChannel = _.findWhere(this.channels, {id: this.activeChannel.id});
+            }
         }
 
         onNewChannelOk( response )

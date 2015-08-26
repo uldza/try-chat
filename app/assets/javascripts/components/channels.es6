@@ -29,29 +29,13 @@
         {
             let list = this.state.channels.map( (channel) => {
 
-                let input = null;
+                let classes = ['panel', 'panel-default'];
 
-                let name = <span>{channel.name}</span>;
-                let classes = ['channel'];
-
-                if(channel.user.id === this.state.user.id || this.state.user.permission_group === 'admin')
-                {
-                    name = null;
-                    classes.push('clickable');
-
-                    input = (
-                        <div>
-                            <input type='text' ref={'input-'+channel.id} defaultValue={channel.name}/>
-                            <i className='fa fa-check' onClick={this._update.bind(null, channel.id)}/>
-                            <i className='fa fa-times' onClick={ChatActions.deleteChannel.bind(null, channel.id)}/>
-                        </div>
-                    );
-                }
+                if(channel.id === this.state.activeChannel.id) classes.push('panel-primary');
 
                 return (
-                    <li className={classes.join(' ')} key={channel.id}>
-                        {input}
-                        {name}
+                    <li className='channel' key={channel.id}>
+                        <div className={classes.join(' ')} onClick={ChatActions.changeChannel.bind(null, channel.id)}>{channel.name}</div>
                     </li>
                 );
             });

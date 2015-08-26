@@ -13,7 +13,8 @@
                 'deleteChannelOk',
                 'sendNewMessageOk',
                 'updateMessageOk',
-                'deleteMessageOk'
+                'deleteMessageOk',
+                'changeChannel'
             );
 
         }

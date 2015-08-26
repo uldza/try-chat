@@ -16,8 +16,8 @@ module Api
       def attributes
         {
           user: current_user,
-          channel: @cannel,
-          text: params[:message]
+          channel: @channel,
+          text: required_params[:text]
         }
       end
 
