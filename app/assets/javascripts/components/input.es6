@@ -7,6 +7,7 @@
             super(props);
             this._send.bind(this);
             this._labelHtml.bind(this);
+            this._keypress.bind(this);
         }
 
         render()
@@ -19,13 +20,18 @@
                 <div className={classes.join(' ')}>
                     {this._labelHtml()}
 
-                    <input type='text' className='form-control' name='input' ref='input' placeholder={this.props.placeholder} />
+                    <input type='text' className='form-control' onKeyDown={this._keypress.bind(this)} name='input' ref='input' placeholder={this.props.placeholder} />
 
                     <div className='input-group-btn'>
                         <button className='btn btn-default' type='button' onClick={this._send.bind(this)}>{this.props.submit || 'Submit'}</button>
                     </div>
                 </div>
             );
+        }
+
+        _keypress(e)
+        {
+            if( e.keyCode === 13 ) this._send();
         }
 
         _labelHtml()
