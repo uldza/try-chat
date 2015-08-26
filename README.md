@@ -20,3 +20,6 @@
 
 * to run tests `rspec`
 * to run tests with coverage report `COVERAGE=y rspec`
+
+## PS ##
+To create admin user - use `rails c`
