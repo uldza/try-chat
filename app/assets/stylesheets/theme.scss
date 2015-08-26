@@ -127,7 +127,9 @@ header
 
         .remove
         {
+          position: relative;
           text-align: right;
+          z-index: 1;
         }
         i
         {

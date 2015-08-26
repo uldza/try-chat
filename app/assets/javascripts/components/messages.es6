@@ -21,7 +21,7 @@
 
             let input = null;
 
-            if( this.state.user && this._canEdit(this.state.user) )
+            if( this.state.user && this._canEdit(this.state.user) && this.state.activeChannel )
             {
                 input = <Input onSubmit={this._send} large={true} label={this.props.translations.new_message} submit={this.props.translations.send_message}/>;
             }
@@ -103,7 +103,7 @@
                 list = this.state.activeChannel.messages.map( (message) => {
                     let remove = null;
 
-                    if(this._canEditMessage( message ))
+                    if(this._canEditMessage( message ) )
                     {
                         remove = <div className='remove col-md-1 pull-right'><i className='fa fa-times' onClick={ChatActions.deleteMessage.bind(null, this.state.activeChannel.id, message.id)}/></div>;
                     }
