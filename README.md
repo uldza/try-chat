@@ -1,6 +1,6 @@
 # TRY-CHAT #
 
-## Requirments ##
+## Requirements ##
 
 * Puma web server
 * Redis
