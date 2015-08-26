@@ -5,30 +5,59 @@
         constructor()
         {
             this.bindActions(ChatActions);
-            this.channels = null;
+
+            this.userId = null;
+            this.channels = [];
             this.activeChannel = null;
             this.onlineUsers = null;
         }
 
-        onSendMessage( payload )
+        onInitialize( payload )
         {
-            console.log(payload);
-        }
-
-        onRegisterBase( channels )
-        {
-            this.channels = channels;
+            this.userId = payload.userId;
+            this.channels = payload.channels;
             this.activeChannel = this.channels[0];
         }
 
         onNewSocketMsg( message )
         {
+            //TODO handle socket as signaling for futher actions
             console.log( message );
         }
 
-        onCreateNewChannelOk( response )
+        onGetChannelsOk( response )
+        {
+            console.log( response );
+        }
+
+        onNewChannelOk( response )
         {
             console.log(response);
+        }
+
+        onUpdateChannelOk( response )
+        {
+            console.log(response);
+        }
+
+        onDeleteChannelOk( response )
+        {
+            console.log(response);
+        }
+
+        onSendMessageOk( payload )
+        {
+            console.log(payload);
+        }
+
+        onUpdateMessageOk( payload )
+        {
+            console.log(payload);
+        }
+
+        onDeleteMessageOk( payload )
+        {
+            console.log(payload);
         }
     }
 

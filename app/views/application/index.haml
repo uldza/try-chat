@@ -29,4 +29,4 @@
       }
     }
   .container-fluid
-    = react_component('App', {token: form_authenticity_token, translations: translations, channels: @channels.map{ |c| ChannelSerializer.new(c) }}, {prerender: false, id: 'main-content'})
+    = react_component('App', {token: form_authenticity_token, user_id: current_user.id, translations: translations, channels: @channels.map{ |c| ChannelSerializer.new(c) }}, {prerender: true, id: 'main-content'})

@@ -6,7 +6,6 @@
         {
             super(props);
             this.socket = null;
-            ChatActions.registerBase( {channels: this.props.channels, token: this.props.token} );
         }
 
         componentDidMount()
@@ -18,6 +17,8 @@
             this.socket.onmessage = (event) => {
                 ChatActions.newSocketMsg( event );
             };
+
+            ChatActions.initialize( {channels: this.props.channels, token: this.props.token, userId: this.props.user_id} );
         }
 
         render()

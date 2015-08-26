@@ -40,7 +40,7 @@
 
         _create( newName )
         {
-            ChatActions.createNewChannel( newName );
+            ChatActions.newChannel( newName );
         }
     }
 
