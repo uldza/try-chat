@@ -6,7 +6,7 @@
         {
             this.bindActions(ChatActions);
 
-            this.userId = null;
+            this.user = null;
             this.channels = [];
             this.activeChannel = null;
             this.onlineUsers = null;
@@ -14,20 +14,24 @@
 
         onInitialize( payload )
         {
-            this.userId = payload.userId;
+            this.user = payload.user;
             this.channels = payload.channels;
             this.activeChannel = this.channels[0];
         }
 
         onNewSocketMsg( message )
         {
-            //TODO handle socket as signaling for futher actions
-            console.log( message );
+            // I use sockets as signaling for actions
+            if( message.data === 'update' )
+            {
+                ChatActions.getChannels();
+            }
         }
 
         onGetChannelsOk( response )
         {
-            console.log( response );
+            this.channels = response.data;
+            console.log(this.channels);
         }
 
         onNewChannelOk( response )

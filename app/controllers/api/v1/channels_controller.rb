@@ -3,10 +3,12 @@ module Api
     class ChannelsController < BaseController
       private
       def attributes
-        {
-          user: current_user,
+        attrs = {
           name: required_params[:name],
         }
+
+        attrs[:user] = current_user if params[:action] == 'create'
+        attrs
       end
 
       def serializer

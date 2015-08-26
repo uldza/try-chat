@@ -17,20 +17,22 @@ module Api::V1
 
     def create
       @resource = resource_class.new( attributes )
-      @resource.save
-      render json: @resource, status: 200
+      @resource.save!
+
+      respond_with_ok( @resource )
     end
 
     def update
       @resource = scoped_resources.find( params[:id] )
+      render_403 and return if( @resource.user_id != current_user.id && !current_user.admin? )
       @resource.assign_attributes( attributes )
-      @resource.save
-      render json: @resource, status: 200
+      respond_with_ok( {success: @resource.save! } )
     end
 
     def destroy
       @resource = scoped_resources.find( params[:id] )
-      render json: {success: @resource.destroy}, status: 200
+      render_403 and return if( @resource.user_id != current_user.id && !current_user.admin? )
+      respond_with_ok( {success: @resource.destroy } )
     end
 
     def render_401
@@ -46,8 +48,13 @@ module Api::V1
     end
 
     private
-    def publish( redis_channel, message )
-      Redis.new.publish redis_channel, message
+    def respond_with_ok( data )
+      publish( 'update' )
+      render json: data, status: 200
+    end
+
+    def publish( message )
+      Redis.new.publish 'chat', message
     end
 
     def serializer; end

@@ -18,7 +18,7 @@
                 ChatActions.newSocketMsg( event );
             };
 
-            ChatActions.initialize( {channels: this.props.channels, token: this.props.token, userId: this.props.user_id} );
+            ChatActions.initialize( {channels: this.props.channels, token: this.props.token, user: this.props.user} );
         }
 
         render()

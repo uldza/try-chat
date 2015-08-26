@@ -28,6 +28,20 @@
             this.dispatch( payload );
         }
 
+        getChannels()
+        {
+            let baseUrl = 'http://' + window.location.host;
+            let url = baseUrl + '/api/v1/channels';
+
+            axios.get( url ).
+            then( (response) => {
+                this.actions.getChannelsOk(response);
+            }).
+            catch( (response) => {
+                console.error(response);
+            });
+        }
+
         newChannel( newName )
         {
             let baseUrl = 'http://' + window.location.host;
