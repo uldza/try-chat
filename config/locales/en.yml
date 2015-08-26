@@ -15,7 +15,6 @@ en:
 
       new_message: 'New message'
       send_message: 'Send'
-      online_users: 'Online users'
 
       channel_name: 'Channel name'
       create_channel: 'New'
