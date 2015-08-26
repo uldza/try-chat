@@ -12,7 +12,7 @@ describe MessageSerializer, type: :class do
   end
 
   it 'creates JSON with required fields' do
-    expect(@parsed.keys).to eq(%w(id text channel_id user))
+    expect(@parsed.keys).to eq(%w(id text channel_id created_at user))
   end
 
   it 'has correct values' do
@@ -26,7 +26,8 @@ describe MessageSerializer, type: :class do
       'id'                => message.id,
       'channel_id'        => channel.id,
       'text'              => 'Hi dude!',
-      'user'              => user_hash
+      'created_at'        => message.created_at.strftime('%Y-%m-%d %H:%M'),
+      'user'              => user_hash,
     })
   end
 end

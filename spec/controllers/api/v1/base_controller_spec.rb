@@ -42,8 +42,8 @@ describe Api::V1::BaseController do
 
   describe "#publish" do
     it "publishes given message to given redis channel" do
-      expect(Redis).to receive_message_chain('new.publish').with('chan', 'Test message')
-      controller.send(:publish, 'chan', 'Test message')
+      expect(Redis).to receive_message_chain('new.publish').with('chat', 'Test message')
+      controller.send(:publish, 'Test message')
     end
   end
 end
