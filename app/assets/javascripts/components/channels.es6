@@ -17,7 +17,7 @@
             }
 
             return (
-                <div className='panel panel-default'>
+                <div className='panel panel-info'>
                     <div className='panel-heading'>{this.props.translations.channels_title}</div>
 
                     <div className='panel-body'>

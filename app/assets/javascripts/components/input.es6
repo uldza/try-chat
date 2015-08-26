@@ -23,7 +23,7 @@
                     <input type='text' className='form-control' onKeyDown={this._keypress.bind(this)} name='input' ref='input' placeholder={this.props.placeholder} />
 
                     <div className='input-group-btn'>
-                        <button className='btn btn-default' type='button' onClick={this._send.bind(this)}>{this.props.submit || 'Submit'}</button>
+                        <button className='btn btn-primary' type='button' onClick={this._send.bind(this)}>{this.props.submit || 'Submit'}</button>
                     </div>
                 </div>
             );

@@ -6,12 +6,10 @@
         %span= 'TRY-CHAT'
 
     %ul.navbar-right.nav.navbar-nav
-      %li.current-user
-        %i.fa.fa-user
-        %span= current_user.email
-      %li.logout
+      %li.logout.pull-right
         = form_tag(destroy_user_session_path, method: :delete) do
           %button{type: :submit, class: ['btn', 'btn-warning']}
+            %span= current_user.email
             %span= t('logout', scope: 'public.page.index')
 
 %main

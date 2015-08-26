@@ -27,7 +27,7 @@
             }
 
             return (
-                <div className='messages panel panel-default'>
+                <div className='messages panel panel-info'>
                     <div className='panel-heading'>
                         {this._headerHtml()}
                     </div>
@@ -105,19 +105,19 @@
 
                     if(this._canEditMessage( message ))
                     {
-                        remove = <div className='remove col-md-1'><i className='fa fa-times' onClick={ChatActions.deleteMessage.bind(null, this.state.activeChannel.id, message.id)}/></div>;
+                        remove = <div className='remove col-md-1 pull-right'><i className='fa fa-times' onClick={ChatActions.deleteMessage.bind(null, this.state.activeChannel.id, message.id)}/></div>;
                     }
 
                     return (
                         <li className='message' key={message.id}>
                             <div className={classes.join(' ')}>
                                 <div className='row'>
+                                    {remove}
                                     <div className='user col-md-2'>
                                         <div>{message.user.email}</div>
                                         <div>{moment(message.created_at).format('hh:mm DD/MM/YYYY')}</div>
                                     </div>
                                     <div className='col-md-9'>{message.text}</div>
-                                    {remove}
                                 </div>
                             </div>
                         </li>
