@@ -5,6 +5,14 @@
 * Puma web server
 
 
+## Technologies used
+
+* reactJS
+* websockets
+* altJS (for flux implementation)
+* es6
+* ruby on rails
+
 
 ## Test run instructions ##
 
